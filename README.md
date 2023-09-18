@@ -63,7 +63,7 @@ A couple of special MCU pins has to be set-up to proper logical values to enter 
 
 ## Resources
 
-- [STM32 toolchain for Windows](https://embeddedgeek.net/youtube/stm32-toolchain-for-windows/)
+- [STM32 toolchain for Windows](https://embeddedgeek.net/posts/STM32-toolchain-for-windows/)
 - [STM32 toolchain for Windows - Part 1 (CubeMX, GCC, Make and OpenOCD)](https://youtu.be/PxQw5_7yI8Q)
 - [Visual Studio Code for STM32 development and debugging - Part 2](https://youtu.be/xaC5oWwzOt0)
 - [STM32 Startup code, Bare metal - Part 3](https://youtu.be/7stymN3eYw0)
