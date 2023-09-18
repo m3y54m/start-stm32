@@ -2,12 +2,7 @@
 
 The BluePill STM32F103C8 board is used for this project:
 
-- **Step 1:** Configure using STM32CubeMX and create a Makefile project
-- **Step 2:** Write a simple LED blinky program on GPIO PC13
-- **Step 3:** Print "Hello World!" on UART1
-
 ![image](https://github.com/m3y54m/start-stm32-bluepill/assets/1549028/1b6a010c-b83e-449e-8bc2-77c649784068)
-
 
 ## Uploading
 
@@ -51,18 +46,15 @@ A couple of special MCU pins has to be set-up to proper logical values to enter 
 
 ![image](https://user-images.githubusercontent.com/1549028/213869634-1ede5169-8cdf-4ff9-8a94-26daba5fbd69.png)
 
-
 ## Schematics
 
 ![image](https://user-images.githubusercontent.com/1549028/213869613-a7071a58-811e-42a3-b75f-5759ac5d6baa.png)
 
-
-## Notes
-
-- Adafruit SSD1306 LCD driver library did not work with the BluePill. I used [U8glib](https://github.com/olikraus/u8g2/) instead.
-
 ## Resources
 
+- [Setting-up cross compiler and build tools for STM32](https://freeelectron.ro/arm-cross-compiler-tutorial-stm32/)
+- [Bare Metal STM32 Programming – LED Blink](https://freeelectron.ro/bare-metal-stm32-led-blink/)
+- [Bare Metal - From zero to blink](https://www.linuxembedded.fr/2021/02/bare-metal-from-zero-to-blink)
 - [STM32 toolchain for Windows](https://embeddedgeek.net/posts/STM32-toolchain-for-windows/)
 - [STM32 toolchain for Windows - Part 1 (CubeMX, GCC, Make and OpenOCD)](https://youtu.be/PxQw5_7yI8Q)
 - [Visual Studio Code for STM32 development and debugging - Part 2](https://youtu.be/xaC5oWwzOt0)
