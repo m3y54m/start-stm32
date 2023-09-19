@@ -41,6 +41,33 @@ void main(void)
 }
 ```
 
+### [Using STM32 HAL](blinky-hal)
+
+This program is based on the article ***["STM32 LED Blink"](https://stm32world.com/wiki/STM32_LED_Blink)*** which uses STM32 HAL to configure the microcontroller and blink the LED.
+
+The project initialization is done by STM32CubeMX.
+
+```c
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+
+	// Toggle the LED
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+
+	// Wait for 500 ms
+	HAL_Delay(500);
+
+	// Rinse and repeat :)
+
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+  }
+  /* USER CODE END 3 */
+```
+
 ## Uploading
 
 The best way to upload the sketch is to use ST-Link or J-Link debuggers. But due to the additional hardware costs you may want to use a cheaper alternative method.
