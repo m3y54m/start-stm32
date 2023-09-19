@@ -6,7 +6,7 @@ The BluePill STM32F103C8 board is used for this project.
 
 ### [With No Libraries](blinky-no-lib) 
 
-This program is based on the article **[Bare Metal STM32 Programming – LED Blink](https://freeelectron.ro/bare-metal-stm32-led-blink/)** without using any external libraries (except `stdint.h` which is only used to define `uint32_t`).
+This program is based on the article ***["Bare Metal STM32 Programming – LED Blink"](https://freeelectron.ro/bare-metal-stm32-led-blink/)*** without using any external libraries (except `stdint.h` which is only used to define `uint32_t`).
 
 In order to compile and link this program we need the main program source file [`main.c`](blinky-no-lib/src/main.c), the linker script file [`linker.ld`](blinky-no-lib/src/linker.ld), and the C run-time assembly file [`crt.s`](blinky-no-lib/src/crt.s).
 
