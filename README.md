@@ -4,6 +4,45 @@ The BluePill STM32F103C8 board is used for this project:
 
 ![image](https://github.com/m3y54m/start-stm32-bluepill/assets/1549028/1b6a010c-b83e-449e-8bc2-77c649784068)
 
+## LED Blink Program
+
+### [With No Libraries](blinky-no-lib) 
+
+This program is based on the article **[Bare Metal STM32 Programming – LED Blink](https://freeelectron.ro/bare-metal-stm32-led-blink/)** without using any external libraries (except `stdint.h` which is only used to define `uint32_t`).
+
+In order to compile and link this program we need the main program source file [`main.c`](blinky-no-lib/src/main.c), the linker script file [`linker.ld`](blinky-no-lib/src/linker.ld), and the C run-time assembly file [`crt.s`](blinky-no-lib/src/crt.s).
+
+```c
+#include <stdint.h>
+
+// register address
+#define RCC_BASE      0x40021000
+#define GPIOC_BASE    0x40011000
+
+#define RCC_APB2ENR   *(volatile uint32_t *)(RCC_BASE   + 0x18)
+#define GPIOC_CRH     *(volatile uint32_t *)(GPIOC_BASE + 0x04)
+#define GPIOC_ODR     *(volatile uint32_t *)(GPIOC_BASE + 0x0C)
+
+// bit fields
+#define RCC_IOPCEN   (1<<4)
+#define GPIOC13      (1UL<<13)
+
+void main(void)
+{
+    RCC_APB2ENR |= RCC_IOPCEN;
+    GPIOC_CRH   &= 0xFF0FFFFF;
+    GPIOC_CRH   |= 0x00200000;
+
+    while(1)
+    {
+        GPIOC_ODR |=  GPIOC13;
+        for (int i = 0; i < 500000; i++); // arbitrary delay
+        GPIOC_ODR &= ~GPIOC13;
+        for (int i = 0; i < 500000; i++); // arbitrary delay
+    }
+}
+```
+
 ## Uploading
 
 The best way to upload the sketch is to use ST-Link or J-Link debuggers. But due to the additional hardware costs you may want to use a cheaper alternative method.
@@ -65,3 +104,4 @@ A couple of special MCU pins has to be set-up to proper logical values to enter 
 - [Blinking LED with STM32CubeMX and HAL](https://wiki.st.com/stm32mcu/wiki/STM32StepByStep:Step2_Blink_LED)
 - [UART and new board introduction](https://wiki.st.com/stm32mcu/wiki/STM32StepByStep:Step3_Introduction_to_the_UART)
 - [Using the STM32 UART interface with HAL ](https://visualgdb.com/tutorials/arm/stm32/uart/hal/)
+- [st-flash tool](https://github.com/stlink-org/stlink)
