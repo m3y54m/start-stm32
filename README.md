@@ -1,8 +1,6 @@
 # Getting Started with STM32 Programming
 
-The BluePill STM32F103C8 board is used for this project:
-
-![image](https://github.com/m3y54m/start-stm32-bluepill/assets/1549028/1b6a010c-b83e-449e-8bc2-77c649784068)
+The BluePill STM32F103C8 board is used for this project.
 
 ## LED Blink Program
 
