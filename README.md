@@ -70,7 +70,28 @@ The project initialization is done by STM32CubeMX.
 
 ## Uploading
 
-The best way to upload the sketch is to use ST-Link or J-Link debuggers. But due to the additional hardware costs you may want to use a cheaper alternative method.
+The best way to upload the sketch is to use ST-Link or J-Link debuggers or any other debugger supported by OpenOCD:
+
+For example you can upload your program to STM32F103 microcontroller [using an FT232H module](https://github.com/m3y54m/cjmcu-ft232hq-programmer) and `openocd` tool using this command (`firmware.bin` is the name of your program binary file):
+
+```bash
+openocd -f interface/ftdi/ft232h-module-swd.cfg -f target/stm32f1x.cfg  -c init -c "reset halt" -c "flash write_image erase firmware.bin 0x08000000" -c "reset" -c shutdown
+```
+
+If you are using ST-LINK, you can use one of these two methods:
+
+Using `st-flash` tool:
+
+```bash
+st-flash write firmware.bin 0x8000000
+```
+Using `openocd` tool:
+
+```bash
+openocd -f interface/stlink.cfg -f target/stm32f1x.cfg  -c init -c "reset halt" -c "flash write_image erase firmware.bin 0x08000000" -c "reset" -c shutdown
+```
+
+But due to the additional hardware costs you may want to use a cheaper alternative method.
 
 I have tried to upload the program using the DFU, HID, and Maple bootloaders but I couldn't get them to work.
 
